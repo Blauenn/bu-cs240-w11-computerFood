@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-## A website displaying computer food. I wish I could try some 4564664555.
+A website displaying computer food. I wish I could try some 4564664555.
 
 ## Features
 - Display a list of computer food.
