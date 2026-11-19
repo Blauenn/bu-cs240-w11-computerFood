@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router"
+import { Link, useParams } from "react-router"
 import { products } from "../data/products"
 import { CaretLeftIcon, SmileyNervousIcon } from "@phosphor-icons/react"
 import ProductLabel from "../components/Product/ProductLabel"
@@ -10,16 +10,6 @@ export default function ProductPage() {
 	const addToCart = useCartStore((state) => state.add)
 
 	const product = products.find((product) => product.id === Number(id))
-
-	const navigate = useNavigate()
-
-	const handleBack = () => {
-		if (window.history.length > 1) {
-			navigate(-1)
-		} else {
-			navigate('/')
-		}
-	}
 
 	if (!product) {
 		return (
