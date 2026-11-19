@@ -3,6 +3,7 @@ import type { CartData } from "../../interface/Products"
 import { useCartStore } from "../../stores/cartStore"
 import { useState } from "react"
 import { priceFormatting } from "../../utils/string"
+import { Link } from "react-router"
 
 type Props = {
 	cartItem: CartData
@@ -17,11 +18,13 @@ export default function CartItem({ cartItem }: Props) {
 
 	return (
 		<div className="min-w-0 border border-gray-200 p-8 flex flex-col sm:flex-row gap-8 rounded-2xl">
-			<img
-				className="w-full h-full object-contain rounded-2xl shadow-md border border-gray-200 sm:w-40 sm:h-40"
-				src={cartItem.product.imageUrl}
-				alt={`An image of ${cartItem.product.title}`}
-			/>
+			<Link to={`/product/${cartItem.product.id}`}>
+				<img
+					className="w-full h-full object-contain rounded-2xl shadow-md border border-gray-200 sm:w-40 sm:h-40 hover:scale-102 transition-all duration-100"
+					src={cartItem.product.imageUrl}
+					alt={`An image of ${cartItem.product.title}`}
+				/>
+			</Link>
 
 			<div className="flex-1 flex flex-col gap-8">
 				<div className="flex flex-col gap-4">

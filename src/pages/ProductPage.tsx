@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router"
+import { Link, useNavigate, useParams } from "react-router"
 import { products } from "../data/products"
 import { CaretLeftIcon, SmileyNervousIcon } from "@phosphor-icons/react"
 import ProductLabel from "../components/Product/ProductLabel"
@@ -11,6 +11,16 @@ export default function ProductPage() {
 
 	const product = products.find((product) => product.id === Number(id))
 
+	const navigate = useNavigate()
+
+	const handleBack = () => {
+		if (window.history.length > 1) {
+			navigate(-1)
+		} else {
+			navigate('/')
+		}
+	}
+
 	if (!product) {
 		return (
 			<div className="flex flex-col items-center justify-center gap-8">
@@ -22,9 +32,12 @@ export default function ProductPage() {
 
 	return (
 		<div className="flex flex-col gap-8">
-			<Link to="/" className="flex items-center gap-4 hover:text-pink-400 transition-all duration-100">
+			<Link
+				to="/"
+				className="flex items-center gap-4 hover:text-pink-400 transition-all duration-100"
+			>
 				<CaretLeftIcon size={26} />
-				<p className="text-2xl font-semibold">Return</p>
+				<p className="text-2xl font-semibold">Return to home</p>
 			</Link>
 
 			<div className="flex flex-col sm:flex-row gap-8 lg:gap-16">

@@ -10,6 +10,9 @@ interface Props {
 export default function ProductCard({ product }: Props) {
 	const addToCart = useCartStore((state) => state.add)
 
+	// useNavigate is used instead of Link because there's a button within the div.
+	//
+	// If we use Link, the button can only be clicked once, and the page changes.
 	const navigate = useNavigate()
 
 	return (
